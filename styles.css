@@ -364,6 +364,106 @@ h1 {
   line-height: 1.75;
 }
 
+.music-player {
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin: 0 0 18px;
+  padding: 14px;
+  border: 1px solid rgba(32, 33, 36, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.82);
+}
+
+.music-disc {
+  position: relative;
+  display: grid;
+  width: 66px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--white) 0 10%, transparent 11%),
+    conic-gradient(from 90deg, var(--blue), var(--green), var(--gold), var(--red), var(--blue));
+}
+
+.music-disc span {
+  width: 22px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.music-player.is-playing .music-disc {
+  animation: spin-disc 1.8s linear infinite;
+}
+
+.music-main {
+  min-width: 0;
+}
+
+.music-meta {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.music-meta strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.music-meta span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.music-progress {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(32, 33, 36, 0.1);
+}
+
+.music-progress span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--green);
+}
+
+.music-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.music-button {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(32, 33, 36, 0.18);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.music-button:hover {
+  border-color: var(--ink);
+}
+
+.play-button {
+  background: var(--ink);
+  color: var(--white);
+  font-size: 15px;
+}
+
 .interest-controls {
   display: flex;
   gap: 10px;
@@ -393,6 +493,12 @@ h1 {
 .carousel-button:focus-visible {
   outline: 3px solid rgba(36, 87, 197, 0.28);
   outline-offset: 3px;
+}
+
+@keyframes spin-disc {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .contact-links {
@@ -477,6 +583,15 @@ h1 {
 
   .button {
     width: 100%;
+  }
+
+  .music-player {
+    grid-template-columns: 56px minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  .music-disc {
+    width: 56px;
   }
 
   .portrait-panel {
