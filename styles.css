@@ -572,50 +572,11 @@ h1 {
   font-weight: 800;
 }
 
-.quick-log-form {
-  display: grid;
-  gap: 12px;
-}
-
-.quick-log-form label {
-  display: grid;
-  gap: 7px;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.quick-log-form select,
-.quick-log-form textarea {
-  width: 100%;
-  border: 1px solid rgba(32, 33, 36, 0.16);
-  border-radius: 8px;
-  background: var(--white);
-  color: var(--ink);
-  font: inherit;
-}
-
-.quick-log-form select {
-  min-height: 42px;
-  padding: 0 12px;
-}
-
-.quick-log-form textarea {
-  min-height: 82px;
-  padding: 10px 12px;
-  line-height: 1.55;
-  resize: vertical;
-}
-
-.quick-log-submit {
-  width: 100%;
-}
-
 .quick-log-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 18px 0 12px;
+  margin: 0 0 12px;
 }
 
 .quick-filter {
@@ -676,18 +637,6 @@ h1 {
   color: var(--ink);
   font-size: 14px;
   line-height: 1.55;
-}
-
-.quick-log-delete {
-  margin-top: 8px;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 0;
 }
 
 .note-type {
