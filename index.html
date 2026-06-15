@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Xiang Guangxuan 的个人主页、作品集和联系方式。" />
+  <title>Xiang Guangxuan | 个人主页</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="返回首页">XG</a>
+    <nav class="nav" aria-label="主要导航">
+      <a href="#about">关于</a>
+      <a href="#projects">作品</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Personal Website</p>
+        <h1 id="hero-title">你好，我是 Xiang Guangxuan。</h1>
+        <p class="hero-text">
+          这里是我的个人主页，用来展示学习记录、项目作品和正在探索的方向。
+        </p>
+        <div class="hero-actions" aria-label="主要操作">
+          <a class="button primary" href="#projects">查看作品</a>
+          <a class="button ghost" href="mailto:your-email@example.com">发邮件</a>
+        </div>
+      </div>
+
+      <div class="portrait-panel" aria-label="个人视觉标识">
+        <div class="portrait">
+          <span>XG</span>
+        </div>
+        <div class="status-card">
+          <span class="status-dot"></span>
+          <p>正在建设个人网页</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div>
+        <p class="section-kicker">About</p>
+        <h2 id="about-title">把自己介绍清楚，是个人网页的第一步。</h2>
+      </div>
+      <p>
+        你可以在这里写自己的专业、兴趣、技能、经历，或者一句最想让别人记住你的话。
+        例如：我喜欢用技术和设计解决真实问题，也在持续学习前端开发与产品表达。
+      </p>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <p class="section-kicker">Projects</p>
+        <h2 id="projects-title">作品展示</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="project-mark mark-blue"></span>
+          <h3>个人主页</h3>
+          <p>使用 HTML、CSS 和 JavaScript 制作，并通过 GitHub Pages 发布。</p>
+        </article>
+        <article class="project-card">
+          <span class="project-mark mark-green"></span>
+          <h3>学习笔记</h3>
+          <p>记录编程、设计、英语或其他主题的学习过程。</p>
+        </article>
+        <article class="project-card">
+          <span class="project-mark mark-red"></span>
+          <h3>未来作品</h3>
+          <p>这里可以继续添加课程项目、比赛作品、研究成果或实习经历。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="section-kicker">Contact</p>
+        <h2 id="contact-title">保持联系</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:your-email@example.com">Email</a>
+        <a href="https://github.com/XiangGuangxuan">GitHub</a>
+        <a href="#" aria-disabled="true">Resume</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Xiang Guangxuan. Built with GitHub Pages.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
