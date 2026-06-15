@@ -290,6 +290,111 @@ h1 {
   line-height: 1.75;
 }
 
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.interest-card {
+  min-height: 260px;
+  padding: 22px;
+  border: 1px solid rgba(32, 33, 36, 0.12);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.64)),
+    rgba(255, 253, 248, 0.72);
+}
+
+.interest-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.interest-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 32px;
+  border: 1px solid rgba(32, 33, 36, 0.14);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.interest-count {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.interest-card h3 {
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.interest-viewport {
+  overflow: hidden;
+}
+
+.interest-track {
+  display: flex;
+  transition: transform 220ms ease;
+}
+
+.interest-slide {
+  min-width: 100%;
+}
+
+.interest-slide strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.interest-slide p {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.interest-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.carousel-button {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(32, 33, 36, 0.2);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.carousel-button:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
+}
+
+.carousel-button:focus-visible {
+  outline: 3px solid rgba(36, 87, 197, 0.28);
+  outline-offset: 3px;
+}
+
 .contact-links {
   display: flex;
   flex-wrap: wrap;
@@ -338,8 +443,15 @@ h1 {
 
   .about,
   .contact,
-  .project-grid {
+  .project-grid,
+  .interest-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1040px) {
+  .interest-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
