@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Xiang Guangxuan 的个人主页、作品集和联系方式。" />
   <title>Xiang Guangxuan | 个人主页</title>
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <header class="site-header">
@@ -224,25 +224,62 @@
         <h2 id="notes-title">文章与笔记</h2>
       </div>
 
-      <div class="note-grid">
-        <article class="note-card">
-          <p class="note-type">动漫观后感</p>
-          <h3>《作品名》观后感模板</h3>
-          <p>首页只放摘要：这篇文章记录我看完某部作品后，对角色成长、主题表达和几个关键片段的想法。</p>
-          <a class="text-link" href="notes/anime-01.html">阅读全文</a>
-        </article>
-        <article class="note-card">
-          <p class="note-type">学习笔记</p>
-          <h3>HTML / CSS 学习笔记</h3>
-          <p>这里可以记录网页结构、样式布局、GitHub Pages 发布过程，以及以后踩过的坑。</p>
-          <a class="text-link" href="#notes">准备中</a>
-        </article>
-        <article class="note-card">
-          <p class="note-type">作品介绍</p>
-          <h3>个人项目介绍模板</h3>
-          <p>用于说明一个项目想解决什么问题、做了哪些功能、用了什么技术，以及下一步准备改进什么。</p>
-          <a class="text-link" href="#notes">准备中</a>
-        </article>
+      <div class="notes-layout">
+        <div class="note-grid">
+          <article class="note-card">
+            <p class="note-type">动漫观后感</p>
+            <h3>《作品名》观后感模板</h3>
+            <p>首页只放摘要：这篇文章记录我看完某部作品后，对角色成长、主题表达和几个关键片段的想法。</p>
+            <a class="text-link" href="notes/anime-01.html">阅读全文</a>
+          </article>
+          <article class="note-card">
+            <p class="note-type">学习笔记</p>
+            <h3>HTML / CSS 学习笔记</h3>
+            <p>这里可以记录网页结构、样式布局、GitHub Pages 发布过程，以及以后踩过的坑。</p>
+            <a class="text-link" href="#notes">准备中</a>
+          </article>
+          <article class="note-card">
+            <p class="note-type">作品介绍</p>
+            <h3>个人项目介绍模板</h3>
+            <p>用于说明一个项目想解决什么问题、做了哪些功能、用了什么技术，以及下一步准备改进什么。</p>
+            <a class="text-link" href="#notes">准备中</a>
+          </article>
+        </div>
+
+        <aside class="quick-log" aria-labelledby="quick-log-title" data-quick-log>
+          <div class="quick-log-head">
+            <div>
+              <p class="section-kicker">Log</p>
+              <h3 id="quick-log-title">随手记录</h3>
+            </div>
+            <span class="quick-log-count" data-quick-log-count>0 条</span>
+          </div>
+
+          <form class="quick-log-form" data-quick-log-form>
+            <label>
+              <span>类型</span>
+              <select data-quick-log-type>
+                <option value="报告">报告</option>
+                <option value="日记">日记</option>
+                <option value="吐槽">吐槽</option>
+              </select>
+            </label>
+            <label>
+              <span>内容</span>
+              <textarea data-quick-log-text maxlength="140" rows="3" placeholder="今天想记什么"></textarea>
+            </label>
+            <button class="button primary quick-log-submit" type="submit">添加</button>
+          </form>
+
+          <div class="quick-log-filters" aria-label="记录筛选">
+            <button class="quick-filter is-active" type="button" data-quick-filter="全部">全部</button>
+            <button class="quick-filter" type="button" data-quick-filter="报告">报告</button>
+            <button class="quick-filter" type="button" data-quick-filter="日记">日记</button>
+            <button class="quick-filter" type="button" data-quick-filter="吐槽">吐槽</button>
+          </div>
+
+          <ul class="quick-log-list" data-quick-log-list></ul>
+        </aside>
       </div>
     </section>
 
@@ -263,6 +300,6 @@
     <p>© <span id="year"></span> Xiang Guangxuan. Built with GitHub Pages.</p>
   </footer>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

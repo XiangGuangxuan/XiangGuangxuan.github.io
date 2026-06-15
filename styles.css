@@ -523,8 +523,15 @@ h1 {
 
 .note-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+.notes-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, 0.42fr);
+  gap: 18px;
+  align-items: start;
 }
 
 .note-card {
@@ -533,6 +540,154 @@ h1 {
   border: 1px solid rgba(32, 33, 36, 0.12);
   border-radius: 8px;
   background: rgba(255, 253, 248, 0.72);
+}
+
+.quick-log {
+  padding: 22px;
+  border: 1px solid rgba(32, 33, 36, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.78);
+}
+
+.quick-log-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.quick-log h3 {
+  margin-bottom: 0;
+  font-size: 24px;
+}
+
+.quick-log-count {
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid rgba(32, 33, 36, 0.12);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.quick-log-form {
+  display: grid;
+  gap: 12px;
+}
+
+.quick-log-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.quick-log-form select,
+.quick-log-form textarea {
+  width: 100%;
+  border: 1px solid rgba(32, 33, 36, 0.16);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+.quick-log-form select {
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.quick-log-form textarea {
+  min-height: 82px;
+  padding: 10px 12px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.quick-log-submit {
+  width: 100%;
+}
+
+.quick-log-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 12px;
+}
+
+.quick-filter {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(32, 33, 36, 0.16);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.quick-filter.is-active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
+}
+
+.quick-log-list {
+  display: grid;
+  max-height: 420px;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.quick-log-item {
+  padding: 12px;
+  border: 1px solid rgba(32, 33, 36, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.9);
+}
+
+.quick-log-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+
+.quick-log-tag {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.quick-log-date {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.quick-log-item p {
+  margin-bottom: 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.quick-log-delete {
+  margin-top: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 0;
 }
 
 .note-type {
@@ -638,6 +793,7 @@ h1 {
 
   .about,
   .contact,
+  .notes-layout,
   .project-grid,
   .interest-grid,
   .note-grid {
@@ -673,6 +829,10 @@ h1 {
 
   .button {
     width: 100%;
+  }
+
+  .quick-log {
+    padding: 18px;
   }
 
   .music-player {

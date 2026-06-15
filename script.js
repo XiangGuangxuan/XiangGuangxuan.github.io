@@ -153,3 +153,101 @@ if (musicPlayer) {
 
   renderTrack();
 }
+
+const quickLog = document.querySelector("[data-quick-log]");
+
+if (quickLog) {
+  const storageKey = "personal-site-quick-log";
+  const form = quickLog.querySelector("[data-quick-log-form]");
+  const typeField = quickLog.querySelector("[data-quick-log-type]");
+  const textField = quickLog.querySelector("[data-quick-log-text]");
+  const list = quickLog.querySelector("[data-quick-log-list]");
+  const count = quickLog.querySelector("[data-quick-log-count]");
+  const filters = Array.from(quickLog.querySelectorAll("[data-quick-filter]"));
+  const starterLogs = [
+    { id: "starter-1", type: "报告", text: "整理本周网页修改：兴趣轮播、音乐播放器、文章模板。", date: "06-15" },
+    { id: "starter-2", type: "日记", text: "今天把个人主页一点点搭起来了，开始有自己的空间了。", date: "06-15" },
+    { id: "starter-3", type: "吐槽", text: "缓存真的会让页面看起来像没改过，版本号很有用。", date: "06-15" }
+  ];
+  let activeFilter = "全部";
+  let logs;
+
+  try {
+    logs = JSON.parse(window.localStorage.getItem(storageKey) || "null") || starterLogs;
+  } catch {
+    logs = starterLogs;
+  }
+
+  const escapeHtml = (value) => value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+  const saveLogs = () => {
+    window.localStorage.setItem(storageKey, JSON.stringify(logs));
+  };
+
+  const renderLogs = () => {
+    const visibleLogs = activeFilter === "全部"
+      ? logs
+      : logs.filter((item) => item.type === activeFilter);
+
+    list.innerHTML = visibleLogs.map((item) => `
+      <li class="quick-log-item">
+        <div class="quick-log-item-head">
+          <span class="quick-log-tag">${escapeHtml(item.type)}</span>
+          <span class="quick-log-date">${escapeHtml(item.date)}</span>
+        </div>
+        <p>${escapeHtml(item.text)}</p>
+        <button class="quick-log-delete" type="button" data-log-id="${item.id}">删除</button>
+      </li>
+    `).join("");
+
+    count.textContent = `${logs.length} 条`;
+  };
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const text = textField.value.trim();
+
+    if (!text) {
+      textField.focus();
+      return;
+    }
+
+    const now = new Date();
+    logs = [{
+      id: `${now.getTime()}`,
+      type: typeField.value,
+      text,
+      date: `${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`
+    }, ...logs];
+    textField.value = "";
+    saveLogs();
+    renderLogs();
+  });
+
+  filters.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeFilter = button.dataset.quickFilter;
+      filters.forEach((item) => item.classList.toggle("is-active", item === button));
+      renderLogs();
+    });
+  });
+
+  list.addEventListener("click", (event) => {
+    const deleteButton = event.target.closest("[data-log-id]");
+
+    if (!deleteButton) {
+      return;
+    }
+
+    logs = logs.filter((item) => item.id !== deleteButton.dataset.logId);
+    saveLogs();
+    renderLogs();
+  });
+
+  renderLogs();
+}
